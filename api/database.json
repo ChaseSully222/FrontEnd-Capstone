@@ -1,0 +1,31 @@
+{
+  "paintings": [
+    {
+      "id": 1,
+      "artWork": "varchar",
+      "name": "Painting Name",
+      "description": "A description of the painting",
+      "size": "num x num"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "email@email.com",
+      "username": "Walla",
+      "isAdmin": true
+    },
+    {
+        "id": 2,
+        "email": "email@email.com",
+        "username": "User2",
+        "isAdmin": false
+      },
+      {
+        "id": 3,
+        "email": "email@email.com",
+        "username": "User1",
+        "isAdmin": false
+      }
+  ]
+}
