@@ -2,6 +2,7 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 
 import Home from "./home/Home";
+import Login from "./auth/Login";
 import AboutMe from "./aboutme/AboutMe";
 import Gallery from "./gallery/gallery";
 import Favorites from "./favorites/favorites";
@@ -18,6 +19,19 @@ const ApplicationViews = props => {
         path="/"
         render={props => {
           return <Home />;
+        }}
+      />
+      <Route
+        path="/login"
+        render={props => {
+          return <Login setUser={setUser} {...props} />;
+        }}
+      />
+      <Route
+        exact
+        path="/accountform"
+        render={props => {
+          return <Login {...props} />;
         }}
       />
       <Route
