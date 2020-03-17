@@ -11,8 +11,8 @@
   "users": [
     {
       "id": 1,
-      "email": "email@email.com",
-      "username": "Walla",
+      "email": "admin@nss.com",
+      "username": "Admin",
       "isAdmin": true
     },
     {
