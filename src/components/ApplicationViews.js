@@ -6,6 +6,7 @@ import Login from "./auth/Login";
 import AboutMe from "./aboutme/AboutMe";
 import GalleryList from "./gallery/GalleryList";
 import GalleryForm from "./gallery/GalleryForm";
+import GalleryEditForm from "./gallery/GalleryEditForm";
 import Favorites from "./favorites/favorites";
 import Contact from "./contact/contact";
 
@@ -19,13 +20,13 @@ const ApplicationViews = props => {
         exact
         path="/"
         render={props => {
-          return <Home />;
+          return <Home {...props} />;
         }}
       />
       <Route
         path="/login"
         render={props => {
-          return <Login setUser={setUser} {...props} />;
+          return <Login {...props} />;
         }}
       />
       <Route
@@ -50,10 +51,16 @@ const ApplicationViews = props => {
         }}
       />
       <Route
-        path="/paintings/new"
+        path="/gallery/new"
         render={props => {
           return <GalleryForm {...props} />;
         }}
+      />
+      <Route
+      path="/gallery/:paintingId(\d+)/edit"
+      render={props => {
+      return <GalleryEditForm {...props} />;
+      }}
       />
       <Route
         exact
