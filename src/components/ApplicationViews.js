@@ -7,6 +7,7 @@ import AboutMe from "./aboutme/AboutMe";
 import GalleryList from "./gallery/GalleryList";
 import GalleryForm from "./gallery/GalleryForm";
 import GalleryEditForm from "./gallery/GalleryEditForm";
+import PaintingDetail from "./gallery/GalleryDetails";
 import Favorites from "./favorites/favorites";
 import Contact from "./contact/contact";
 
@@ -60,6 +61,17 @@ const ApplicationViews = props => {
       path="/gallery/:paintingId(\d+)/edit"
       render={props => {
       return <GalleryEditForm {...props} />;
+      }}
+      />
+      <Route
+      path="/gallery/:paintingId(\d+)"
+      render={props => {
+        return (
+          <PaintingDetail
+          paintingId={parseInt(props.match.params.paintingId)}
+          {...props}
+          />
+        )
       }}
       />
       <Route

@@ -15,10 +15,9 @@
       "size": "num x num"
     },
     {
+      "id": 3,
       "name": "Painting Name 3",
-      "artwork": "",
-      "artWork": "artwork image 3",
-      "id": 3
+      "artWork": "artwork image 3"
     }
   ],
   "users": [
