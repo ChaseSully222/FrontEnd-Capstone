@@ -5,6 +5,7 @@ import Home from "./home/Home";
 import Login from "./auth/Login";
 import AboutMe from "./aboutme/AboutMe";
 import GalleryList from "./gallery/GalleryList";
+import GalleryForm from "./gallery/GalleryForm";
 import Favorites from "./favorites/favorites";
 import Contact from "./contact/contact";
 
@@ -46,6 +47,12 @@ const ApplicationViews = props => {
         path="/gallery"
         render={props => {
           return <GalleryList {...props} />;
+        }}
+      />
+      <Route
+        path="/paintings/new"
+        render={props => {
+          return <GalleryForm {...props} />;
         }}
       />
       <Route
