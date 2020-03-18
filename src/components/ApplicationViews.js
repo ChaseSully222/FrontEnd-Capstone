@@ -4,7 +4,7 @@ import React from "react";
 import Home from "./home/Home";
 import Login from "./auth/Login";
 import AboutMe from "./aboutme/AboutMe";
-import Gallery from "./gallery/gallery";
+import GalleryList from "./gallery/GalleryList";
 import Favorites from "./favorites/favorites";
 import Contact from "./contact/contact";
 
@@ -45,7 +45,7 @@ const ApplicationViews = props => {
         exact
         path="/gallery"
         render={props => {
-          return <Gallery {...props} />;
+          return <GalleryList {...props} />;
         }}
       />
       <Route
