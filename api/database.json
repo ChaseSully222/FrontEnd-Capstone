@@ -1,0 +1,43 @@
+{
+  "paintings": [
+    {
+      "id": 1,
+      "name": "Painting Name 1",
+      "artWork": "Image of Artwork",
+      "description": "A description of the painting",
+      "size": "13 x 13"
+    },
+    {
+      "id": 2,
+      "artWork": "Image of Artwork",
+      "name": "Painting Name 2",
+      "description": "A description of the painting",
+      "size": "num x num"
+    },
+    {
+      "id": 3,
+      "name": "Painting Name 3",
+      "artWork": "artwork image 3"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@nss.com",
+      "username": "Admin",
+      "isAdmin": true
+    },
+    {
+      "id": 2,
+      "email": "email@email.com",
+      "username": "User2",
+      "isAdmin": false
+    },
+    {
+      "id": 3,
+      "email": "email@email.com",
+      "username": "User1",
+      "isAdmin": false
+    }
+  ]
+}
