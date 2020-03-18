@@ -17,7 +17,8 @@ const GalleryEditForm = props => {
 
     const editedPainting = {
       id: props.match.params.paintingId,
-      name: painting.name
+      name: painting.name,
+      artWork: painting.artWork
     };
     GalleryManager.update(editedPainting).then(() =>
       props.history.push("/gallery")
@@ -25,31 +26,40 @@ const GalleryEditForm = props => {
   };
 
   useEffect(() => {
-      GalleryManager.get(props.match.params.paintingId)
-      .then(painting => {
-          GalleryManager.getAll().then(() => {
-              setPainting(painting);
-              setIsLoading(false);
-          })
-      })
+    GalleryManager.get(props.match.params.paintingId).then(painting => {
+      GalleryManager.getAll().then(() => {
+        setPainting(painting);
+        setIsLoading(false);
+      });
+    });
   }, []);
 
   return (
-      <>
+    <>
       <form>
-          <fieldset>
-              <div className="formgrid">
-                  <input
-                  type="text"
-                  required
-                  className="form-control"
-                  onChange={handleFieldChange}
-                  id="name"
-                  value={painting.name}
-                  />
-                  <label htmlFor="name">Painting Name</label>
-              </div>
-              <div className="alignRight">
+        <fieldset>
+          <div className="formgrid">
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="name"
+              value={painting.name}
+            />
+            <label htmlFor="name">Painting Name</label>
+
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="artWork"
+              value={painting.artWork}
+            />
+            <label htmlFor="Artwork">Artwork</label>
+          </div>
+          <div className="alignRight">
             <button
               type="button"
               disabled={isLoading}
@@ -59,10 +69,10 @@ const GalleryEditForm = props => {
               Submit
             </button>
           </div>
-          </fieldset>
+        </fieldset>
       </form>
-      </>
-  )
+    </>
+  );
 };
 
 export default GalleryEditForm;

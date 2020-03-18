@@ -2,20 +2,22 @@
   "paintings": [
     {
       "id": 1,
-      "artWork": "varchar",
+      "artWork": "Image of Artwork",
       "name": "Painting Name 1",
       "description": "A description of the painting",
       "size": "num x num"
     },
     {
       "id": 2,
-      "artWork": "varchar",
+      "artWork": "Image of Artwork",
       "name": "Painting Name 2",
       "description": "A description of the painting",
       "size": "num x num"
     },
     {
       "name": "Painting Name 3",
+      "artwork": "",
+      "artWork": "artwork image 3",
       "id": 3
     }
   ],

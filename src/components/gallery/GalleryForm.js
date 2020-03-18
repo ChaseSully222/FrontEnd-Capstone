@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import GalleryManager from "../../modules/GalleryManager";
 
 const GalleryForm = props => {
-  const [painting, setPainting] = useState({ name: "" });
+  const [painting, setPainting] = useState({ name: "", artwork:""});
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -13,8 +13,8 @@ const GalleryForm = props => {
 
   const constructNewPainting = evt => {
     evt.preventDefault();
-    if (painting.name === "") {
-      window.alert("Please input a name");
+    if (painting.name === "" || painting.artWork === "") {
+      window.alert("Please input a name, and add an image");
     } else {
       setIsLoading(true);
       GalleryManager.post(painting).then(() =>
@@ -35,6 +35,14 @@ const GalleryForm = props => {
             placeholder="Painting Name"
           />
           <label htmlFor="name">Painting Name</label>
+          <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="artWork"
+              placeholder="Artwork"
+            />
+            <label htmlFor="Artwork">Artwork</label>
         </div>
         <div className="alignRight">
             <button

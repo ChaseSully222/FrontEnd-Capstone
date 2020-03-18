@@ -7,6 +7,7 @@ const PaintingCard = props => {
         <h3>
           <span className="card-artname">{props.painting.name}</span>
         </h3>
+        <h4><em>{props.painting.artWork}</em></h4>
         <button type="button" onClick={() => props.history.push(`/gallery/${props.painting.id}/edit`)}>
           Edit
         </button>
