@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import GalleryManager from "../../modules/GalleryManager";
 
 const GalleryEditForm = props => {
-  const [painting, setPainting] = useState({ name: "" });
+  const [painting, setPainting] = useState({ name: "", artWork: "", description: "", size: ""});
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -18,7 +18,9 @@ const GalleryEditForm = props => {
     const editedPainting = {
       id: props.match.params.paintingId,
       name: painting.name,
-      artWork: painting.artWork
+      artWork: painting.artWork,
+      description: painting.description,
+      size: painting.size
     };
     GalleryManager.update(editedPainting).then(() =>
       props.history.push("/gallery")
@@ -58,6 +60,26 @@ const GalleryEditForm = props => {
               value={painting.artWork}
             />
             <label htmlFor="Artwork">Artwork</label>
+
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="description"
+              value={painting.description}
+            />
+            <label htmlFor="Description">Description</label>
+
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="size"
+              value={painting.size}
+            />
+            <label htmlFor="Size">Size</label>
           </div>
           <div className="alignRight">
             <button

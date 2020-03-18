@@ -2,10 +2,10 @@
   "paintings": [
     {
       "id": 1,
-      "artWork": "Image of Artwork",
       "name": "Painting Name 1",
+      "artWork": "Image of Artwork",
       "description": "A description of the painting",
-      "size": "num x num"
+      "size": "13 x 13"
     },
     {
       "id": 2,
