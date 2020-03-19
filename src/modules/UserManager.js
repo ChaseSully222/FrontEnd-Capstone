@@ -1,8 +1,8 @@
 const remoteURL = "http://localhost:5002";
 
 export default {
-    getUser(email) {
-        return fetch(`${remoteURL}/users?email=${email}`).then(result => result.json());
+    getUser(email, username) {
+        return fetch(`${remoteURL}/users?email=${email}&${username}`).then(result => result.json());
     },
     getCurrentUser() {
         return fetch(`${remoteURL}/users/${parseInt(sessionStorage.getItem("credentials"))}`).then(result => result.json());

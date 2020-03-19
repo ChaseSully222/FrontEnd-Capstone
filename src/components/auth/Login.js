@@ -14,13 +14,14 @@ const Login = props => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    UserManager.getUser(credentials.email, credentials.username)
+    UserManager.getUser(credentials.email || credentials.username)
     .then(result => {
       if (result.length === 0) {
         window.alert("Please enter a valid email")
       } else {
     props.setUser(result[0].id)
     props.history.push("/gallery");
+    console.log(credentials);
   }})}
 
   return (
