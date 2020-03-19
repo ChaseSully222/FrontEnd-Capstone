@@ -17,7 +17,7 @@ const Home = (props) => {
       <h1>Welcome Message!</h1>
       <p><Link to={`/gallery`} onClick={clearUser}><button type="button">Guest</button></Link></p>
       <Link to={`/login`}><button type="button">Sign In</button></Link>
-      <button type="button">New Acc</button>
+      <Link to={`/register`}><button type="button">Register</button></Link>
     </>
   );
 };

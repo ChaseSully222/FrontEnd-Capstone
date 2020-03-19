@@ -2,6 +2,7 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 
 import Login from "./auth/Login";
+import Register from "./register/Register";
 import Home from "./home/Home";
 import AboutMe from "./aboutme/AboutMe";
 import GalleryList from "./gallery/GalleryList";
@@ -25,12 +26,12 @@ const ApplicationViews = props => {
           return <Home {...props} />;
         }}
       />
-      {/* <Route
+      <Route
         path="/register"
         render={props => {
           return <Register {...props} />;
         }}
-      /> */}
+      />
       <Route
         path="/login"
         render={props => {
