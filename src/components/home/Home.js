@@ -21,7 +21,7 @@ const Home = (props) => {
     <>
       <h1>Welcome Message!</h1>
       <p><Link to={`/aboutme`}><button type="button">Guest</button></Link></p>
-      <Link to={`/accountform`}><button type="button">Sign In</button></Link>
+      <Link to={`/login`}><button type="button">Sign In</button></Link>
       <button type="button">New Acc</button>
     </>
   );

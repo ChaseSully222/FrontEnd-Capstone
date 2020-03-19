@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import UserManager from "../../modules/UserManager"
+
 
 const Login = props => {
   const [credentials, setCredentials] = useState({ email: "", username: "" });
@@ -10,11 +12,16 @@ const Login = props => {
     setCredentials(stateToChange);
   };
 
-  const handleLogin = e => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    props.setUser(credentials);
-    props.history.push("/aboutme");
-  };
+    UserManager.getUser(credentials.email, credentials.username)
+    .then(result => {
+      if (result.length === 0) {
+        window.alert("Please enter a valid email")
+      } else {
+    props.setUser(result[0].id)
+    props.history.push("/gallery");
+  }})}
 
   return (
     <form onSubmit={handleLogin}>
@@ -33,12 +40,12 @@ const Login = props => {
 
           <input
             onChange={handleFieldChange}
-            type="password"
-            id="password"
-            placeholder="Password"
+            type="text"
+            id="username"
+            placeholder="Username"
             required=""
           />
-          <label htmlFor="inputPassword">Username</label>
+          <label htmlFor="inputUsername">Username</label>
         </div>
         <button type="submit">Sign in</button>
       </fieldset>
