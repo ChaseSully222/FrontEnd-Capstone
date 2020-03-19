@@ -21,7 +21,6 @@ const Main = () => {
       <>
         <NavBar hasUser={hasUser} clearUser={clearUser} />
         <ApplicationViews hasUser={hasUser} setUser={setUser} />
-      
       </>
     );
   };

@@ -1,8 +1,8 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
 
-import Home from "./home/Home";
 import Login from "./auth/Login";
+import Home from "./home/Home";
 import AboutMe from "./aboutme/AboutMe";
 import GalleryList from "./gallery/GalleryList";
 import GalleryForm from "./gallery/GalleryForm";
@@ -14,6 +14,7 @@ import Contact from "./contact/contact";
 const ApplicationViews = props => {
   const setUser = props.setUser;
   const hasUser = props.hasUser;
+  
 
   return (
     <React.Fragment>
@@ -47,13 +48,13 @@ const ApplicationViews = props => {
         exact
         path="/gallery"
         render={props => {
-          return <GalleryList {...props} />;
+          return <GalleryList hasUser={hasUser} {...props} />;
         }}
       />
       <Route
         path="/gallery/new"
         render={props => {
-          return <GalleryForm {...props} />;
+          return <GalleryForm hasUser={hasUser} {...props} />;
         }}
       />
       <Route
@@ -77,7 +78,7 @@ const ApplicationViews = props => {
         exact
         path="/favorites"
         render={props => {
-          return <Favorites {...props} />;
+          return <Favorites hasUser={hasUser} {...props} />;
         }}
       />
       <Route
