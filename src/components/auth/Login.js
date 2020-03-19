@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import UserManager from "../../modules/UserManager"
-
+import UserManager from "../../modules/UserManager";
 
 const Login = props => {
-  const [credentials, setCredentials] = useState({ email: "", username: "" });
+  const [credentials, setCredentials] = useState({ email: "" });
 
   // Update state whenever an input field is edited
   const handleFieldChange = evt => {
@@ -12,17 +11,18 @@ const Login = props => {
     setCredentials(stateToChange);
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = e => {
     e.preventDefault();
-    UserManager.getUser(credentials.email || credentials.username)
-    .then(result => {
+    UserManager.getUser(credentials.email).then(result => {
       if (result.length === 0) {
-        window.alert("Please enter a valid email")
+        window.alert("Please enter a valid email");
       } else {
-    props.setUser(result[0].id)
-    props.history.push("/gallery");
-    console.log(credentials);
-  }})}
+        props.setUser(result[0].id);
+        props.history.push("/gallery");
+        console.log(credentials);
+      }
+    });
+  };
 
   return (
     <form onSubmit={handleLogin}>
@@ -38,15 +38,6 @@ const Login = props => {
             autoFocus=""
           />
           <label htmlFor="inputEmail">Email address</label>
-
-          <input
-            onChange={handleFieldChange}
-            type="text"
-            id="username"
-            placeholder="Username"
-            required=""
-          />
-          <label htmlFor="inputUsername">Username</label>
         </div>
         <button type="submit">Sign in</button>
       </fieldset>
