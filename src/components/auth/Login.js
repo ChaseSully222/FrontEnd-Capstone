@@ -19,7 +19,6 @@ const Login = props => {
       } else {
         props.setUser(result[0].id);
         props.history.push("/gallery");
-        console.log(credentials);
       }
     });
   };
