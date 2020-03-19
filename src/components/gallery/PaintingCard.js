@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./PaintingCard.css";
 
 const PaintingCard = props => {
   return (
@@ -9,9 +10,7 @@ const PaintingCard = props => {
           <span className="card-artname">{props.painting.name}</span>
         </h3>
         <Link to={`/gallery/${props.painting.id}`}>
-          <h4>
-            <em>{props.painting.artWork}</em>
-          </h4>
+          <img src={props.painting.artWork} />
         </Link>
         <button
           type="button"

@@ -24,17 +24,16 @@ const ApplicationViews = props => {
           return <Home {...props} />;
         }}
       />
+      {/* <Route
+        path="/register"
+        render={props => {
+          return <Register {...props} />;
+        }}
+      /> */}
       <Route
         path="/login"
         render={props => {
-          return <Login {...props} />;
-        }}
-      />
-      <Route
-        exact
-        path="/accountform"
-        render={props => {
-          return <Login {...props} />;
+          return <Login setUser={setUser} {...props} />;
         }}
       />
       <Route
@@ -58,21 +57,21 @@ const ApplicationViews = props => {
         }}
       />
       <Route
-      path="/gallery/:paintingId(\d+)/edit"
-      render={props => {
-      return <GalleryEditForm {...props} />;
-      }}
+        path="/gallery/:paintingId(\d+)/edit"
+        render={props => {
+          return <GalleryEditForm {...props} />;
+        }}
       />
       <Route
-      path="/gallery/:paintingId(\d+)"
-      render={props => {
-        return (
-          <PaintingDetail
-          paintingId={parseInt(props.match.params.paintingId)}
-          {...props}
-          />
-        )
-      }}
+        path="/gallery/:paintingId(\d+)"
+        render={props => {
+          return (
+            <PaintingDetail
+              paintingId={parseInt(props.match.params.paintingId)}
+              {...props}
+            />
+          );
+        }}
       />
       <Route
         exact
