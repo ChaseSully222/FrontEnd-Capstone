@@ -18,8 +18,10 @@ const Login = props => {
         window.alert("Please enter a valid email");
       } else {
         props.setUser(result[0].id);
+        // const isAdmin = result[0].isAdmin
+        // console.log(isAdmin)
+        // props.setUserIsAdmin(true)
         props.history.push("/gallery");
-        console.log(credentials);
       }
     });
   };

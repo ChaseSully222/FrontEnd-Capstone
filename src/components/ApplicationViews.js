@@ -1,19 +1,23 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
 
-import Home from "./home/Home";
 import Login from "./auth/Login";
+import Register from "./register/Register";
+import Home from "./home/Home";
 import AboutMe from "./aboutme/AboutMe";
 import GalleryList from "./gallery/GalleryList";
 import GalleryForm from "./gallery/GalleryForm";
 import GalleryEditForm from "./gallery/GalleryEditForm";
 import PaintingDetail from "./gallery/GalleryDetails";
-import Favorites from "./favorites/favorites";
+import UserWithFavorites from "./favorites/favorites";
 import Contact from "./contact/contact";
 
 const ApplicationViews = props => {
   const setUser = props.setUser;
   const hasUser = props.hasUser;
+  const setUserIsAdmin = props.setUserIsAdmin;
+  const userIsAdmin = props.userIsAdmin;
+  
 
   return (
     <React.Fragment>
@@ -24,16 +28,16 @@ const ApplicationViews = props => {
           return <Home {...props} />;
         }}
       />
-      {/* <Route
+      <Route
         path="/register"
         render={props => {
           return <Register {...props} />;
         }}
-      /> */}
+      />
       <Route
         path="/login"
         render={props => {
-          return <Login setUser={setUser} {...props} />;
+          return <Login setUser={setUser} setUserIsAdmin={setUserIsAdmin} {...props} />;
         }}
       />
       <Route
@@ -47,13 +51,13 @@ const ApplicationViews = props => {
         exact
         path="/gallery"
         render={props => {
-          return <GalleryList {...props} />;
+          return <GalleryList hasUser={hasUser} {...props} userIsAdmin={userIsAdmin} />;
         }}
       />
       <Route
         path="/gallery/new"
         render={props => {
-          return <GalleryForm {...props} />;
+          return <GalleryForm hasUser={hasUser} {...props} />;
         }}
       />
       <Route
@@ -77,7 +81,7 @@ const ApplicationViews = props => {
         exact
         path="/favorites"
         render={props => {
-          return <Favorites {...props} />;
+          return <UserWithFavorites hasUser={hasUser} {...props} />;
         }}
       />
       <Route

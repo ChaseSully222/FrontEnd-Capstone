@@ -12,22 +12,28 @@ const PaintingCard = props => {
         <Link to={`/gallery/${props.painting.id}`}>
           <img src={props.painting.artWork} />
         </Link>
-        <button
-          type="button"
-          onClick={() =>
-            props.history.push(`/gallery/${props.painting.id}/edit`)
-          }
-        >
-          Edit
-        </button>
-        {props.deletePainting && (
-          <button
-            type="button"
-            onClick={() => props.deletePainting(props.painting.id)}
-          >
-            Delete
-          </button>
-        )}
+
+        {props.userIsAdmin === true ? (
+          <div>
+            <button
+              type="button"
+              onClick={() =>
+                props.history.push(`/gallery/${props.painting.id}/edit`)
+              }
+            >
+              Edit
+            </button>
+
+            {props.deletePainting && (
+              <button
+                type="button"
+                onClick={() => props.deletePainting(props.painting.id)}
+              >
+                Delete
+              </button>
+            )}
+          </div>
+        ) : null}
       </div>
     </div>
   );

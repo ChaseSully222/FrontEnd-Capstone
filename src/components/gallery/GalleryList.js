@@ -24,11 +24,17 @@ const GalleryList = props => {
   return (
     <>
       <section className="section-content">
+
+      {props.userIsAdmin === true ? (
         <button type="button" className="btn" onClick={() => {
           props.history.push("/gallery/new");
         }}>
           Add Painting
         </button>
+      ) : (
+        null
+      )}
+
       </section>
       <div className="container-cards">
         {paintings.map(painting => (
