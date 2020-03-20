@@ -25,7 +25,7 @@ const GalleryList = props => {
     <>
       <section className="section-content">
 
-      {props.hasUser === true ? (
+      {props.userIsAdmin === true ? (
         <button type="button" className="btn" onClick={() => {
           props.history.push("/gallery/new");
         }}>

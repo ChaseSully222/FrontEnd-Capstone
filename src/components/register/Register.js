@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import UserManager from "../../modules/UserManager";
 
 const Register = props => {
-    const [credentials, setCredentials] = useState({ email: "" });
-    const [user, setUser] = useState({ email: "", username: "" });
+  const [user, setUser] = useState({ email: "", username: "", isAdmin:false });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -19,18 +18,6 @@ const Register = props => {
       ...user
     };
     UserManager.postUser(newUser).then(() => props.history.push("/login"));
-  };
-
-  const handleLogin = e => {
-    e.preventDefault();
-    UserManager.getUser(credentials.email).then(result => {
-      if (result.length === 0) {
-        window.alert("Please enter a valid email");
-      } else {
-        props.setUser(result[0].id);
-        props.history.push("/gallery");
-      }
-    });
   };
 
   return (

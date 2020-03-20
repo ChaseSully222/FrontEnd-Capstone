@@ -9,12 +9,14 @@ import GalleryList from "./gallery/GalleryList";
 import GalleryForm from "./gallery/GalleryForm";
 import GalleryEditForm from "./gallery/GalleryEditForm";
 import PaintingDetail from "./gallery/GalleryDetails";
-import Favorites from "./favorites/favorites";
+import UserWithFavorites from "./favorites/favorites";
 import Contact from "./contact/contact";
 
 const ApplicationViews = props => {
   const setUser = props.setUser;
   const hasUser = props.hasUser;
+  const setUserIsAdmin = props.setUserIsAdmin;
+  const userIsAdmin = props.userIsAdmin;
   
 
   return (
@@ -35,7 +37,7 @@ const ApplicationViews = props => {
       <Route
         path="/login"
         render={props => {
-          return <Login setUser={setUser} {...props} />;
+          return <Login setUser={setUser} setUserIsAdmin={setUserIsAdmin} {...props} />;
         }}
       />
       <Route
@@ -49,7 +51,7 @@ const ApplicationViews = props => {
         exact
         path="/gallery"
         render={props => {
-          return <GalleryList hasUser={hasUser} {...props} />;
+          return <GalleryList hasUser={hasUser} {...props} userIsAdmin={userIsAdmin} />;
         }}
       />
       <Route
@@ -79,7 +81,7 @@ const ApplicationViews = props => {
         exact
         path="/favorites"
         render={props => {
-          return <Favorites hasUser={hasUser} {...props} />;
+          return <UserWithFavorites hasUser={hasUser} {...props} />;
         }}
       />
       <Route

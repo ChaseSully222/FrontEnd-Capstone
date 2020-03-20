@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from "react";
+import FavoritesManager from "../../modules/FavoritesManager";
+import PaintingCard from "../gallery/PaintingCard";
 
-const Favorites = props => {
+const UserWithFavorites = props => {
+  const [user, setUser] = useState({});
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    FavoritesManager.getWithUsers(props.match.params.userId).then(APIResult => {
+      setUser(APIResult);
+      setFavorites(APIResult.favorites);
+    });
+  }, []);
+
   return (
     <>
-      <h1>Your Favorites</h1>
-    <p>When a user adds a favorite from the Gallery, they should render here</p>
+      <div className="card">
+        <p>User: {user.name}</p>
+        {favorites.map(favorite => (
+          <PaintingCard key={favorite.id} favorite={favorite} {...props} />
+        ))}
+      </div>
     </>
   );
 };
 
-export default Favorites;
+export default UserWithFavorites;
