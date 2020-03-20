@@ -13,7 +13,7 @@ const PaintingCard = props => {
           <img src={props.painting.artWork} />
         </Link>
 
-        {props.hasUser === true ? (
+        {props.userIsAdmin === true ? (
           <div>
             <button
               type="button"
