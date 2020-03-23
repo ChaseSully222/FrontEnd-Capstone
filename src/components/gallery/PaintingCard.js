@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PaintingCard.css";
 import FavoritesManager from "../../modules/FavoritesManager";
+import HeartCheckbox from 'react-heart-checkbox';
+
 
 const PaintingCard = props => {
   const addUserFavorite = evt => {
@@ -29,9 +31,7 @@ const PaintingCard = props => {
         </Link>
         {props.hasUser === true && props.userIsAdmin === false ? (
           <div>
-            <button type="button" onClick={addUserFavorite}>
-              Favorite
-            </button>
+            <HeartCheckbox onClick={addUserFavorite} />
           </div>
         ) : null}
         {props.userIsAdmin === true ? (
