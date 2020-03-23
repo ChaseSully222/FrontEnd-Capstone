@@ -12,7 +12,9 @@ const PaintingCard = props => {
         <Link to={`/gallery/${props.painting.id}`}>
           <img src={props.painting.artWork} />
         </Link>
-
+        <div>
+          <button type="button">Favorite</button>
+        </div>
         {props.userIsAdmin === true ? (
           <div>
             <button

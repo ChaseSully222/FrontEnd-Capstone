@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from "react";
 import FavoritesManager from "../../modules/FavoritesManager";
-import PaintingCard from "../gallery/PaintingCard";
+import GalleryCard from "../gallery/PaintingCard";
 
-const UserWithFavorites = props => {
-  const [user, setUser] = useState({});
+const FavoritesList = props => {
   const [favorites, setFavorites] = useState([]);
 
-  useEffect(() => {
-    FavoritesManager.getWithUsers(props.match.params.userId).then(APIResult => {
-      setUser(APIResult);
-      setFavorites(APIResult.favorites);
+  const getFavorites = () => {
+    return FavoritesManager.getAll().then(favoritesFromApi => {
+      setFavorites(favoritesFromApi);
+      console.log(favoritesFromApi);
     });
+  };
+
+  useEffect(() => {
+    getFavorites();
   }, []);
 
   return (
     <>
       <div className="card">
-        <p>User: {user.name}</p>
-        {favorites.map(favorite => (
-          <PaintingCard key={favorite.id} favorite={favorite} {...props} />
-        ))}
+        <div className="container-cards">
+          {favorites.map(favorites => (
+            <GalleryCard key={favorites.id} painting={favorites} {...props} />
+          ))}
+        </div>
       </div>
     </>
   );
 };
 
-export default UserWithFavorites;
+export default FavoritesList;

@@ -9,7 +9,7 @@ import GalleryList from "./gallery/GalleryList";
 import GalleryForm from "./gallery/GalleryForm";
 import GalleryEditForm from "./gallery/GalleryEditForm";
 import PaintingDetail from "./gallery/GalleryDetails";
-import UserWithFavorites from "./favorites/favorites";
+import FavoritesList from "./favorites/favorites";
 import Contact from "./contact/contact";
 
 const ApplicationViews = props => {
@@ -81,7 +81,7 @@ const ApplicationViews = props => {
         exact
         path="/favorites"
         render={props => {
-          return <UserWithFavorites hasUser={hasUser} {...props} />;
+          return <FavoritesList hasUser={hasUser} {...props} />;
         }}
       />
       <Route
