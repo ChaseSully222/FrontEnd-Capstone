@@ -6,9 +6,9 @@ const FavoritesList = props => {
   const [favorites, setFavorites] = useState([]);
 
   const getFavorites = () => {
-    return FavoritesManager.getAll().then(favoritesFromApi => {
+    const userId = sessionStorage.getItem("credentials")
+    return FavoritesManager.getWithUsers(userId).then(favoritesFromApi => {
       setFavorites(favoritesFromApi);
-      console.log(favoritesFromApi);
     });
   };
 
@@ -20,8 +20,8 @@ const FavoritesList = props => {
     <>
       <div className="card">
         <div className="container-cards">
-          {favorites.map(favorites => (
-            <GalleryCard key={favorites.id} painting={favorites} {...props} />
+          {favorites.map(favorite => (
+            <GalleryCard key={favorite.painting.id} painting={favorite.painting} {...props} />
           ))}
         </div>
       </div>

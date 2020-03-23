@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./PaintingCard.css";
+import FavoritesManager from "../../modules/FavoritesManager";
 
 const PaintingCard = props => {
+  const addUserFavorite = evt => {
+    const activeUserId = sessionStorage.getItem("credentials");
+
+    evt.preventDefault();
+    const newFavorite = {
+      userId: parseInt(activeUserId),
+      paintingId: props.painting.id
+    };
+    FavoritesManager.post(newFavorite).then(() =>
+      props.history.push("/gallery")
+    );
+    console.log(newFavorite);
+  };
+
   return (
     <div className="card">
       <div className="card-content">
@@ -12,9 +27,13 @@ const PaintingCard = props => {
         <Link to={`/gallery/${props.painting.id}`}>
           <img src={props.painting.artWork} />
         </Link>
-        <div>
-          <button type="button">Favorite</button>
-        </div>
+        {props.hasUser === true && props.userIsAdmin === false ? (
+          <div>
+            <button type="button" onClick={addUserFavorite}>
+              Favorite
+            </button>
+          </div>
+        ) : null}
         {props.userIsAdmin === true ? (
           <div>
             <button
