@@ -23,7 +23,7 @@ const PaintingDetail = props => {
         <h1>
           <span className="card-artworkname">{painting.name}</span>
         </h1>
-       <img src={painting.artWork} />
+       <img src={painting.artWork} alt="Spray Painting"/>
         <p>{painting.description}</p>
         <h5>
           <em>{painting.size}</em>

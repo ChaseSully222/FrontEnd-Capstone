@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./PaintingCard.css";
 import FavoritesManager from "../../modules/FavoritesManager";
@@ -25,7 +25,7 @@ const PaintingCard = props => {
           <span className="card-artname">{props.painting.name}</span>
         </h3>
         <Link to={`/gallery/${props.painting.id}`}>
-          <img src={props.painting.artWork} />
+          <img src={props.painting.artWork} alt="Spray Painting"/>
         </Link>
         {props.hasUser === true && props.userIsAdmin === false ? (
           <div>
