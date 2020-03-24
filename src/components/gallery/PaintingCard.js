@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PaintingCard.css";
 import FavoritesManager from "../../modules/FavoritesManager";
+import HeartCheckbox from "react-heart-checkbox";
 
 const PaintingCard = props => {
   const addUserFavorite = evt => {
@@ -18,9 +19,10 @@ const PaintingCard = props => {
   };
 
   const deleteUserFav = id => {
-    FavoritesManager.delete(id).then(() => props.history.push("/gallery"));
+    FavoritesManager.delete(id).then(() => props.getFavorites());
   };
 
+  // fetch call to check the paintingID and the activeUserId is in the favorties table. favorites?userId=activeId&paintingId=props.painting.id
   return (
     <div className="card">
       <div className="card-content">
@@ -30,14 +32,19 @@ const PaintingCard = props => {
         <Link to={`/gallery/${props.painting.id}`}>
           <img src={props.painting.artWork} alt="Spray Painting" />
         </Link>
-        {props.hasUser === true && props.userIsAdmin === false ? (
-          <div>
-            <button onClick={addUserFavorite}> Add Fav </button>
-            <button type="button" onClick={deleteUserFav}>
+        <div>
+          {props.favoriteId !== 0 && (
+            <button
+              type="button"
+              onClick={() => deleteUserFav(props.favoriteId)}
+            >
               Remove Fav
             </button>
-          </div>
-        ) : null}
+          )}
+          {props.hasUser === true && props.userIsAdmin === false ? (
+            <HeartCheckbox onClick={addUserFavorite} />
+          ) : null}
+        </div>
         {props.userIsAdmin === true ? (
           <div>
             <button

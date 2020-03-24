@@ -39,6 +39,7 @@ const GalleryList = props => {
       <div className="container-cards">
         {paintings.map(painting => (
           <GalleryCard
+            favoriteId={0}
             key={painting.id}
             painting={painting}
             deletePainting={deletePainting}
