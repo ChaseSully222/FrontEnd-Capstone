@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PaintingCard.css";
 import FavoritesManager from "../../modules/FavoritesManager";
-import HeartCheckbox from 'react-heart-checkbox';
-
 
 const PaintingCard = props => {
   const addUserFavorite = evt => {
@@ -17,7 +15,10 @@ const PaintingCard = props => {
     FavoritesManager.post(newFavorite).then(() =>
       props.history.push("/gallery")
     );
-    console.log(newFavorite);
+  };
+
+  const deleteUserFav = id => {
+    FavoritesManager.delete(id).then(() => props.history.push("/gallery"));
   };
 
   return (
@@ -27,11 +28,14 @@ const PaintingCard = props => {
           <span className="card-artname">{props.painting.name}</span>
         </h3>
         <Link to={`/gallery/${props.painting.id}`}>
-          <img src={props.painting.artWork} alt="Spray Painting"/>
+          <img src={props.painting.artWork} alt="Spray Painting" />
         </Link>
         {props.hasUser === true && props.userIsAdmin === false ? (
           <div>
-            <HeartCheckbox onClick={addUserFavorite} />
+            <button onClick={addUserFavorite}> Add Fav </button>
+            <button type="button" onClick={deleteUserFav}>
+              Remove Fav
+            </button>
           </div>
         ) : null}
         {props.userIsAdmin === true ? (

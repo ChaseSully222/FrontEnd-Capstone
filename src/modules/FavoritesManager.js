@@ -14,5 +14,10 @@ export default {
       },
       body: JSON.stringify(newUserFavorite)
     }).then(data => data.json());
+  },
+  delete(id) {
+    return fetch (`${remoteURL}/favorites/${id}`, {
+      method: "DELETE"
+    }).then(result => result.json())
   }
 };
