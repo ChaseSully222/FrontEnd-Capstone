@@ -48,7 +48,7 @@ const PaintingCard = props => {
             </button>
           )}
           {props.hasUser === true && props.userIsAdmin === false ? (
-            <button onClick={checkUserFavs}>Favorite</button>
+            <button onClick={addUserFavorite}>Favorite</button>
           ) : null}
         </div>
         {props.userIsAdmin === true ? (
