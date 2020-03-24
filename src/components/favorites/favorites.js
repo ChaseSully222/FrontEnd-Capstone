@@ -22,7 +22,7 @@ const FavoritesList = props => {
         <div className="container-cards">
           {favorites.map(favorite => (
             <GalleryCard
-            getFavorites={getFavorites}
+              getFavorites={getFavorites}
               favoriteId={favorite.id}
               key={favorite.painting.id}
               painting={favorite.painting}

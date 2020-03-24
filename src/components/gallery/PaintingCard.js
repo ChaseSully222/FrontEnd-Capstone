@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PaintingCard.css";
 import FavoritesManager from "../../modules/FavoritesManager";
-import HeartCheckbox from "react-heart-checkbox";
 
 const PaintingCard = props => {
   const addUserFavorite = evt => {
     const activeUserId = sessionStorage.getItem("credentials");
 
-    evt.preventDefault();
+    // evt.preventDefault();
     const newFavorite = {
       userId: parseInt(activeUserId),
       paintingId: props.painting.id
@@ -22,7 +21,14 @@ const PaintingCard = props => {
     FavoritesManager.delete(id).then(() => props.getFavorites());
   };
 
-  // fetch call to check the paintingID and the activeUserId is in the favorties table. favorites?userId=activeId&paintingId=props.painting.id
+  const checkUserFavs = e => {
+    e.preventDefault();
+    FavoritesManager.usersWithFavorites().then(
+      result => {
+        console.log(result)
+      })
+  };
+
   return (
     <div className="card">
       <div className="card-content">
@@ -42,7 +48,7 @@ const PaintingCard = props => {
             </button>
           )}
           {props.hasUser === true && props.userIsAdmin === false ? (
-            <HeartCheckbox onClick={addUserFavorite} />
+            <button onClick={checkUserFavs}>Favorite</button>
           ) : null}
         </div>
         {props.userIsAdmin === true ? (

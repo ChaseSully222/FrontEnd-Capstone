@@ -6,6 +6,11 @@ export default {
       `${remoteURL}/favorites/?userId=${id}&_expand=painting`
     ).then(result => result.json());
   },
+  usersWithFavorites(id, paintingId) {
+    return fetch(
+      `${remoteURL}/favorites?userId=${id}&paintingId=${paintingId}`
+    ).then(result => result.json());
+  },
   post(newUserFavorite) {
     return fetch(`${remoteURL}/favorites`, {
       method: "POST",
@@ -19,5 +24,6 @@ export default {
     return fetch (`${remoteURL}/favorites/${id}`, {
       method: "DELETE"
     }).then(result => result.json())
-  }
+  },
+
 };
