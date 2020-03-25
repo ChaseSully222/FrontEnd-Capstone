@@ -4,28 +4,30 @@ import "./PaintingCard.css";
 import FavoritesManager from "../../modules/FavoritesManager";
 
 const PaintingCard = props => {
-  const addUserFavorite = evt => {
-    const activeUserId = sessionStorage.getItem("credentials");
+  const activeUserId = sessionStorage.getItem("credentials");
 
-    // evt.preventDefault();
+  const addUserFavorite = () => {
     const newFavorite = {
       userId: parseInt(activeUserId),
       paintingId: props.painting.id
     };
-    FavoritesManager.post(newFavorite).then(() =>
-      props.history.push("/gallery")
-    );
+    FavoritesManager.post(newFavorite).then(() => window.alert("added to favorites!"))
   };
 
   const deleteUserFav = id => {
     FavoritesManager.delete(id).then(() => props.getFavorites());
   };
 
-  const checkUserFavs = () => {
-    FavoritesManager.usersWithFavorites().then(
+  const checkUserFavs = paintingId => {
+    FavoritesManager.usersWithFavorites(activeUserId, paintingId).then(
       result => {
-        console.log(result)
-      })
+        if (result.length === 0) {
+          addUserFavorite()
+        } else {
+          window.alert("already a favorite");
+        }
+      }
+    );
   };
 
   return (
@@ -47,7 +49,9 @@ const PaintingCard = props => {
             </button>
           )}
           {props.hasUser === true && props.userIsAdmin === false ? (
-            <button onClick={checkUserFavs}>Favorite</button>
+            <button onClick={() => checkUserFavs(props.painting.id)}>
+              Favorite
+            </button>
           ) : null}
         </div>
         {props.userIsAdmin === true ? (
