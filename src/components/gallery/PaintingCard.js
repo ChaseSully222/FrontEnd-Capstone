@@ -1,8 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./PaintingCard.css";
+import FavoritesManager from "../../modules/FavoritesManager";
 
 const PaintingCard = props => {
+  const activeUserId = sessionStorage.getItem("credentials");
+
+  const addUserFavorite = () => {
+    const newFavorite = {
+      userId: parseInt(activeUserId),
+      paintingId: props.painting.id
+    };
+    FavoritesManager.post(newFavorite).then(() => window.alert("added to favorites!"))
+  };
+
+  const deleteUserFav = id => {
+    FavoritesManager.delete(id).then(() => props.getFavorites());
+  };
+
+  const checkUserFavs = paintingId => {
+    FavoritesManager.usersWithFavorites(activeUserId, paintingId).then(
+      result => {
+        if (result.length === 0) {
+          addUserFavorite()
+        } else {
+          window.alert("already a favorite");
+        }
+      }
+    );
+  };
+
   return (
     <div className="card">
       <div className="card-content">
@@ -10,9 +37,23 @@ const PaintingCard = props => {
           <span className="card-artname">{props.painting.name}</span>
         </h3>
         <Link to={`/gallery/${props.painting.id}`}>
-          <img src={props.painting.artWork} />
+          <img src={props.painting.artWork} alt="Spray Painting" />
         </Link>
-
+        <div>
+          {props.favoriteId !== 0 && (
+            <button
+              type="button"
+              onClick={() => deleteUserFav(props.favoriteId)}
+            >
+              Remove Fav
+            </button>
+          )}
+          {props.hasUser === true && props.userIsAdmin === false ? (
+            <button onClick={() => checkUserFavs(props.painting.id)}>
+              Favorite
+            </button>
+          ) : null}
+        </div>
         {props.userIsAdmin === true ? (
           <div>
             <button

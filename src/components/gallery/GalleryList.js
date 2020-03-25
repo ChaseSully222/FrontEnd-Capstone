@@ -24,21 +24,27 @@ const GalleryList = props => {
   return (
     <>
       <section className="section-content">
-
-      {props.userIsAdmin === true ? (
-        <button type="button" className="btn" onClick={() => {
-          props.history.push("/gallery/new");
-        }}>
-          Add Painting
-        </button>
-      ) : (
-        null
-      )}
-
+        {props.userIsAdmin === true ? (
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              props.history.push("/gallery/new");
+            }}
+          >
+            Add Painting
+          </button>
+        ) : null}
       </section>
       <div className="container-cards">
         {paintings.map(painting => (
-          <GalleryCard key={painting.id} painting={painting} deletePainting={deletePainting} {...props}/>
+          <GalleryCard
+            favoriteId={0}
+            key={painting.id}
+            painting={painting}
+            deletePainting={deletePainting}
+            {...props}
+          />
         ))}
       </div>
     </>
