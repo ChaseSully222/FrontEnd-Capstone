@@ -9,7 +9,7 @@ const Home = () => {
 
   const clearUser = () => {
     sessionStorage.clear();
-    setHasUser(isAuthenticated());
+    // setHasUser(isAuthenticated());
   }
 
   return (

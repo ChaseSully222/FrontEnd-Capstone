@@ -21,8 +21,7 @@ const PaintingCard = props => {
     FavoritesManager.delete(id).then(() => props.getFavorites());
   };
 
-  const checkUserFavs = e => {
-    e.preventDefault();
+  const checkUserFavs = () => {
     FavoritesManager.usersWithFavorites().then(
       result => {
         console.log(result)
@@ -48,7 +47,7 @@ const PaintingCard = props => {
             </button>
           )}
           {props.hasUser === true && props.userIsAdmin === false ? (
-            <button onClick={addUserFavorite}>Favorite</button>
+            <button onClick={checkUserFavs}>Favorite</button>
           ) : null}
         </div>
         {props.userIsAdmin === true ? (

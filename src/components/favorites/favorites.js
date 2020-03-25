@@ -18,6 +18,7 @@ const FavoritesList = props => {
 
   return (
     <>
+    {props.hasUser === true ? (
       <div className="card">
         <div className="container-cards">
           {favorites.map(favorite => (
@@ -30,7 +31,8 @@ const FavoritesList = props => {
             />
           ))}
         </div>
-      </div>
+      </div> 
+       ) : "Please create an account to add favorites!" }
     </>
   );
 };
