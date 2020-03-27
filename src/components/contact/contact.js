@@ -3,9 +3,13 @@ import React from "react";
 const Contact = () => {
   return (
     <>
-      <h1>Contact</h1>
+      <section className="section-content">
+        <h1>CONTACT</h1>
+      <hr></hr>
+      </section>
       <p>
-        <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed vulputate odio ut enim blandit volutpat maecenas. Et netus et malesuada fames ac turpis egestas maecenas pharetra.</em>
+        <em>You can contact us via email: csART@csart.com
+</em>
       </p>
       <h3>Commission</h3>
       <em>commission info and form </em>
