@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import GalleryManager from "../../modules/GalleryManager";
 
 const PaintingDetail = props => {
-  const [painting, setPainting] = useState({ name: "", artWork: "" });
+  const [painting, setPainting] = useState({ name: "", artWork: "", description: "", size: "" });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

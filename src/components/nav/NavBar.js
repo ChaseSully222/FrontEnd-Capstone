@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./NavBar.css"
 
 const NavBar = props => {
   const handleLogout = () => {
@@ -11,7 +12,7 @@ const NavBar = props => {
   return (
     <header>
       <h1 className="site-title">
-        Logo
+        csART
         <br />
       </h1>
       <nav>
