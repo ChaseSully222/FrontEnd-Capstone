@@ -18,6 +18,7 @@ const ApplicationViews = props => {
   const setUserIsAdmin = props.setUserIsAdmin;
   const userIsAdmin = props.userIsAdmin;
   
+  
 
   return (
     <React.Fragment>

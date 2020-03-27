@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GalleryManager from "../../modules/GalleryManager";
+import "./GalleryDetails.css";
 
 const PaintingDetail = props => {
   const [painting, setPainting] = useState({
@@ -26,7 +27,7 @@ const PaintingDetail = props => {
     <div>
       <br></br>
       <div className="card">
-        <div className="card-content">
+        <div className="detail-card">
           <h1>
             <span className="card-artworkname">{painting.name}</span>
           </h1>

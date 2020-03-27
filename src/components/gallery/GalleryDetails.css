@@ -1,0 +1,12 @@
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.detail-card {
+  justify-content: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+}

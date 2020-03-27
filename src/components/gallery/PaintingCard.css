@@ -1,15 +1,12 @@
 
 img {
-  width: 35%;
+  width: 100%;
   height: auto;
 }
 
 .card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgb(46, 218, 248);
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
-  background: rgb(0, 22, 41);
   margin-bottom: 2em;
   flex: 0 1 24%;
   text-align: center;
@@ -18,22 +15,22 @@ img {
 .card-content {
   padding: .5em;
   justify-content: center;
-}
+  }
 
 .card-content h3 {
   margin-top: 0;
   margin-bottom: .5em;
   font-weight: bold;
-  color: rgb(133, 133, 133);
+  color: rgb(0, 0, 0);
 }
 
 .card-content p {
   font-size: 80%;
-  color: darkslategrey;
+  color: rgb(0, 0, 0);
 }
 
 .content-artname {
-  color: darkslategrey;
+  color: rgb(2, 2, 2);
 }
 
 .card button {
@@ -44,10 +41,10 @@ img {
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  padding: .5em;
+  /* padding: .5em; */
   border-radius: 2px;
   margin: .1em;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .card button:hover {
