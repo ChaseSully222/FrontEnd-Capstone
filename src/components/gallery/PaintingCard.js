@@ -72,6 +72,7 @@ const PaintingCard = props => {
                 type="button"
                 onClick={() => props.deletePainting(props.painting.id)}
               >
+                <span className="glyphicon glyphicon-trash"></span>
                 Delete
               </button>
             )}

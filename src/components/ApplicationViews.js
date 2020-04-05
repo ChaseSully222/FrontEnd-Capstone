@@ -17,8 +17,6 @@ const ApplicationViews = props => {
   const hasUser = props.hasUser;
   const setUserIsAdmin = props.setUserIsAdmin;
   const userIsAdmin = props.userIsAdmin;
-  
-  
 
   return (
     <React.Fragment>
@@ -38,7 +36,13 @@ const ApplicationViews = props => {
       <Route
         path="/login"
         render={props => {
-          return <Login setUser={setUser} setUserIsAdmin={setUserIsAdmin} {...props} />;
+          return (
+            <Login
+              setUser={setUser}
+              setUserIsAdmin={setUserIsAdmin}
+              {...props}
+            />
+          );
         }}
       />
       <Route
@@ -52,7 +56,13 @@ const ApplicationViews = props => {
         exact
         path="/gallery"
         render={props => {
-          return <GalleryList hasUser={hasUser} {...props} userIsAdmin={userIsAdmin} />;
+          return (
+            <GalleryList
+              hasUser={hasUser}
+              userIsAdmin={userIsAdmin}
+              {...props}
+            />
+          );
         }}
       />
       <Route

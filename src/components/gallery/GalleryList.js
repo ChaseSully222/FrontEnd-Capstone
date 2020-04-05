@@ -28,7 +28,7 @@ const GalleryList = props => {
         <hr></hr>
       </section>
       <section className="section-content">
-        {props.userIsAdmin === true ? (
+        {props.hasUser === true ? (
           <button
             type="button"
             className="btn"
@@ -38,7 +38,7 @@ const GalleryList = props => {
           >
             Add Painting
           </button>
-        ) : null}
+        ) :null}
       </section>
       <br></br>
       <div className="container-cards">
