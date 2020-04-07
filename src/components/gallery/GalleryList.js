@@ -28,7 +28,7 @@ const GalleryList = props => {
         <hr></hr>
       </section>
       <section className="section-content">
-        {props.hasUser === true ? (
+        {props.userIsAdmin === true ? (
           <button
             type="button"
             className="btn"

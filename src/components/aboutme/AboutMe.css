@@ -1,20 +1,21 @@
 .aboutme-section {
   text-align: center;
   color: rgb(255, 255, 255);
-  margin: 0px 20px;
-  padding: 100px 20px;
-}
+  margin: 0px 160px;
+  padding: 100px 60px;
+  }
 
 .btn {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   cursor: pointer;
   text-decoration: none;
   border: none;
   margin: 1px;
   transition: .8s;
+  background: rgb(88, 88, 88);
 }
 
 .btn:hover {
-    color: white;
+    color: black;
   background-color:  #b9b9b938 ;
 }
