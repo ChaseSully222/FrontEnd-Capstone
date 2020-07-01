@@ -24,6 +24,10 @@ const GalleryList = props => {
   return (
     <>
       <section className="section-content">
+        <h1>SPRAY PAINTINGS</h1>
+        <hr></hr>
+      </section>
+      <section className="section-content">
         {props.userIsAdmin === true ? (
           <button
             type="button"
@@ -34,8 +38,9 @@ const GalleryList = props => {
           >
             Add Painting
           </button>
-        ) : null}
+        ) :null}
       </section>
+      <br></br>
       <div className="container-cards">
         {paintings.map(painting => (
           <GalleryCard

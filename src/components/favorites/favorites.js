@@ -18,21 +18,29 @@ const FavoritesList = props => {
 
   return (
     <>
-    {props.hasUser === true ? (
-      <div className="card">
-        <div className="container-cards">
-          {favorites.map(favorite => (
-            <GalleryCard
-              getFavorites={getFavorites}
-              favoriteId={favorite.id}
-              key={favorite.painting.id}
-              painting={favorite.painting}
-              {...props}
-            />
-          ))}
+      <section className="section-content">
+        <h1>YOUR FAVORITES</h1>
+        <hr></hr>
+      </section>
+      {props.hasUser === true ? (
+        <div className="cards">
+          <div className="container-cards">
+            {favorites.map(favorite => (
+              <GalleryCard
+                getFavorites={getFavorites}
+                favoriteId={favorite.id}
+                key={favorite.painting.id}
+                painting={favorite.painting}
+                {...props}
+              />
+            ))}
+          </div>
         </div>
-      </div> 
-       ) : "Please create an account to add favorites!" }
+      ) : (
+        <div>
+          <h3>Please create an account to add favorites!</h3>
+        </div>
+      )}
     </>
   );
 };

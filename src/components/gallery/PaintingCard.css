@@ -1,5 +1,58 @@
+
 img {
-  width: 25%;
+  width: 100%;
   height: auto;
 }
 
+.card {
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  margin-bottom: 2em;
+  flex: 0 1 24%;
+  text-align: center;
+}
+
+.card-content {
+  padding: .5em;
+  justify-content: center;
+  }
+
+.card-content h3 {
+  margin-top: 0;
+  margin-bottom: .5em;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.card-content p {
+  font-size: 80%;
+  color: rgb(0, 0, 0);
+}
+
+.content-artname {
+  color: rgb(2, 2, 2);
+}
+
+.card button {
+  background-color: rgb(102, 102, 102);
+  border: none;
+  color: cornsilk;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  /* padding: .5em; */
+  border-radius: 2px;
+  margin: .1em;
+  /* width: 100%; */
+}
+
+.card button:hover {
+  background-color: rgb(156, 156, 156);
+}
+
+.container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

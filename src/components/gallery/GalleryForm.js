@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import GalleryManager from "../../modules/GalleryManager";
 
 const GalleryForm = props => {
-  const [painting, setPainting] = useState({ name: "", artwork:"", description:"", size: ""});
+  const [painting, setPainting] = useState({ name: "", artWork:"", description:"", size: ""});
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {

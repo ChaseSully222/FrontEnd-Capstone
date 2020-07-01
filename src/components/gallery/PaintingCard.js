@@ -11,7 +11,9 @@ const PaintingCard = props => {
       userId: parseInt(activeUserId),
       paintingId: props.painting.id
     };
-    FavoritesManager.post(newFavorite).then(() => window.alert("added to favorites!"))
+    FavoritesManager.post(newFavorite).then(() =>
+      window.alert("added to favorites!")
+    );
   };
 
   const deleteUserFav = id => {
@@ -22,7 +24,7 @@ const PaintingCard = props => {
     FavoritesManager.usersWithFavorites(activeUserId, paintingId).then(
       result => {
         if (result.length === 0) {
-          addUserFavorite()
+          addUserFavorite();
         } else {
           window.alert("already a favorite");
         }
@@ -70,6 +72,7 @@ const PaintingCard = props => {
                 type="button"
                 onClick={() => props.deletePainting(props.painting.id)}
               >
+                <span className="glyphicon glyphicon-trash"></span>
                 Delete
               </button>
             )}

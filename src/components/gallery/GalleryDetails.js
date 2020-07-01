@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import GalleryManager from "../../modules/GalleryManager";
+import "./GalleryDetails.css";
 
 const PaintingDetail = props => {
-  const [painting, setPainting] = useState({ name: "", artWork: "" });
+  const [painting, setPainting] = useState({
+    name: "",
+    artWork: "",
+    description: "",
+    size: ""
+  });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -18,25 +24,28 @@ const PaintingDetail = props => {
   }, [props.paintingId]);
 
   return (
-    <div className="card">
-      <div className="card-content">
-        <h1>
-          <span className="card-artworkname">{painting.name}</span>
-        </h1>
-       <img src={painting.artWork} alt="Spray Painting"/>
-        <p>{painting.description}</p>
-        <h5>
-          <em>{painting.size}</em>
-        </h5>
-        <button
-          type="button"
-          className="btn"
-          onClick={() => {
-            props.history.push("/gallery");
-          }}
-        >
-          Gallery
-        </button>
+    <div>
+      <br></br>
+      <div className="card">
+        <div className="detail-card">
+          <h1>
+            <span className="card-artworkname">{painting.name}</span>
+          </h1>
+          <img src={painting.artWork} alt="Spray Painting" />
+          <p>{painting.description}</p>
+          <h5>
+            <em>{painting.size}</em>
+          </h5>
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              props.history.push("/gallery");
+            }}
+          >
+            Gallery
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,16 @@
 import React from "react";
+import "./AboutMe.css";
+
 
 const AboutMe = props => {
   return (
     <>
-      <h1>About the artist</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed vulputate odio ut enim blandit volutpat maecenas. Et netus et malesuada fames ac turpis egestas maecenas pharetra. Tincidunt lobortis feugiat vivamus at augue. Tincidunt ornare massa eget egestas purus viverra. Aliquet lectus proin nibh nisl condimentum id venenatis a condimentum. Justo laoreet sit amet cursus sit amet dictum sit. Faucibus ornare suspendisse sed nisi. At elementum eu facilisis sed odio morbi quis commodo odio. Ac turpis egestas maecenas pharetra convallis.</p>
+      <section className="section-content">
+        <h1>ABOUT THE ARTIST</h1>
+        <hr></hr>
+      </section>
+      <section className="aboutme-section">
+      <p>Hello there! My name is Chase Sullins. I'm currently a spray paint artists based in the Nashville area. I first started spray painting around 2016 after looking for a new medium to express myself through art. </p>
       <button
         type="button"
         className="btn"
@@ -14,6 +20,7 @@ const AboutMe = props => {
       >
         Gallery
       </button>
+      </section>
     </>
   );
 };
